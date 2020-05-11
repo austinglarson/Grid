@@ -8,39 +8,255 @@
 </head>
 <body>
     <header>
-        <h1 class="max-width">CSS Grid</h1>
+        <div class="max-width">
+            <h1>CSS Grid</h1>
+
+            <nav>
+                <a href="#what-is-grid">What Is CSS Grid</a>
+                <a href="#how-to-build-a-grid">How to Build a Grid Container</a>
+                <a href="#how-to-align-items">How to Align Items in a Grid</a>
+            </nav>
+        </div>
     </header>
 
     <main class="max-width">
-        <article>
+        <article id="what-is-grid">
             <h2>What Is CSS Grid</h2>
-            CSS Grid is a layout system that consists of both rows and columns, allowing the user to be able to manipulate a part of their site in 2 dimensions. This makes styling websites a lot easier, before grid was created a lot of developers used the table element to mimic what a grid can do. This was a huge pain for most people, so when grid was created developers and designers alike rejoiced! CSS Grid was introduced in 2012 by Bert Bos, and his associate Håkon Wium Lie. Grid started as a very simple way to show content on a very small screen. When grid was first introduced developers/designers all over the world looked at it as a revolutionary way to change the layout of pages, and to this day is used in hundreds of websites all over the Internet. 
-        </article>
 
-        <article>
-            <h2>How to Build a Grid Container</h2>
-        </article>
-
-        <article>
-            <h2>How to Align Items in a Grid</h2>
+            <p>CSS Grid is a layout system that consists of both rows and columns, allowing the user to be 
+                able to manipulate a part of their site in 2 dimensions. This makes styling websites a lot 
+                easier, before grid was created a lot of developers used the table element to mimic what a 
+                grid can do. This was a huge pain for most people, so when grid was created developers and 
+                designers alike rejoiced! CSS Grid was introduced in 2012 by Bert Bos, and his associate 
+                Håkon Wium Lie. Grid started as a very simple way to show content on a very small screen. 
+                When grid was first introduced developers/designers all over the world looked at it as a 
+                revolutionary way to change the layout of pages, and to this day is used in hundreds of 
+                websites all over the Internet.</p>
 
             <section>
-                <div class="description">
-                    <h3>grid-column</h3>
-                    <p>The <span class="property">grid-column</span> property is shorthand for 
-                    <span class="property">grid-column-start</span> and <span class="property">grid-column-end</span> 
-                    which determine the start and end position of a grid item.</p>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid"&gt;
+    &lt;div class="col-span-2"&gt;1&lt;/div&gt;
+    &lt;div class="row-span-2"&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div class="col-span-2"&gt;6&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.grid {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(3, auto);
+    padding: 0.5rem;
+    height: 100%;
+    box-sizing: border-box;
+}</pre>
+                    </section>
                 </div>
-                <div class="example grid-column">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="example grid-example">
+                    <div class="col-span-2">1</div>
+                    <div class="row-span-2">2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div class="col-span-2">6</div>
+                </div>
+            </section>
+        </article>
+
+        <article id="how-to-build-a-grid">
+            <h2>How to Build a Grid Container</h2>
+
+            <p>To make a Grid Container you must set the <code>display</code> property to <code>grid</code> 
+                or <code>inline-grid</code>. Grid containers are made up of grid items placed inside 
+                of columns and rows. To achieve the example below, first create a <code>div</code> with a 
+                class of "grid-container." Next, create additional <code>div</code> elements for each 
+                column you want your grid to have. Direct child elements of the grid container automatically 
+                become grid items. Lastly, add custom CSS for how you would like your grid to display on the website.</p>
+            <section>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid-container"&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+}
+</pre>
+                    </section>
+                </div>
+
+                <div class="grid-container">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+            </section>
+        </article>
+
+        <article id="how-to-align-items">
+            <h2>How to Align Items in a Grid</h2>
+
+            <h3>grid-row</h3>
+            <p>The <code>grid-row</code> property is shorthand for 
+            <code>grid-row-start</code> and <code>grid-row-end</code> 
+            which determine the start and end position of a grid item across rows. This is accomplished by
+            stating the row start position before the / and the row end position after.</p>
+
+            <section>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid"&gt;
+    &lt;div class="col-row-2"&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div class="col-row-1-end-3"&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.col-row-2 {
+    grid-row: 2;
+}
+.col-row-1-end-3 {
+    grid-row: 1 / 3;
+}</pre>
+                    </section>
+                </div>
+
+                <div class="example grid-example">
+                    <div class="col-row-2">1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div class="col-row-1-end-3">4</div>
+                </div>
+            </section>
+
+            <h3>grid-column</h3>
+            <p>The <code>grid-column</code> property is shorthand for 
+            <code>grid-column-start</code> and <code>grid-column-end</code> 
+            which determine the start and end position of a grid item across columns. This is accomplished by
+            stating the column start position before the / and the column end position after.</p>
+
+            <section>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid"&gt;
+    &lt;div class="col-start-3"&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div class="col-start-2-end-4"&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.col-start-3 {
+    grid-column: 3;
+}
+.col-start-2-end-4 {
+    grid-column: 2 / 4;
+}</pre>
+                    </section>
+                </div>
+
+                <div class="example grid-example">
+                    <div class="col-start-3">1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div class="col-start-2-end-4">4</div>
+                </div>
+            </section>
+
+            <h3>grid-area</h3>
+            <p>The <code>grid-area</code> property is shorthand for positioning items across both the rows
+            and columns of a grid. It first starts with the <code>grid-row-start</code> and is followed by the 
+            <code>grid-column-start</code>, <code>grid-row-end</code>, and <code>grid-column-end</code>
+            with slashes in between.</p>
+
+            <section>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid"&gt;
+    &lt;div class="square-right"&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.square-right {
+    grid-area: 2 / 2 / 4 / 4;
+}</pre>
+                    </section>
+                </div>
+
+                <div class="example grid-example">
+                    <div class="square-right">1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+            </section>
+
+            <h3>grid-template-areas</h3>
+            <p>The <code>grid-template-areas</code> property is just like <code>grid-area</code> but the
+            position of items are based off of specified names rather than values. To use this method of
+            positioning you must declare the name of each item with the <code>grid-area</code> property. 
+            Then you must declare the position of the item using its name with the 
+            <code>grid-template-areas</code> property.</p>
+
+            <section>
+                <div class="code-container">
+                    <section>
+                        <h3>HTML</h3>
+<pre>&lt;div class="grid"&gt;
+    &lt;div id="one"&gt;1&lt;/div&gt;
+    &lt;div id="two"&gt;2&lt;/div&gt;
+    &lt;div id="three"&gt;3&lt;/div&gt;
+    &lt;div id="four"&gt;4&lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </section>
+                    <section>
+                        <h3>CSS</h3>
+<pre>.grid-template-areas {
+    grid-template-areas: 
+        "one  two   two "
+        "one  three .   "
+        ".    three .   "
+        "four four  four";
+}</pre>
+                    </section>
+                </div>
+
+                <div class="example grid-template-areas">
+                    <div id="one">1</div>
+                    <div id="two">2</div>
+                    <div id="three">3</div>
+                    <div id="four">4</div>
                 </div>
             </section>
         </article>

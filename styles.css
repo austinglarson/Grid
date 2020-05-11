@@ -1,20 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&display=swap');
+
 html {
-    font-family: sans-serif;
+    color: #1B212C;
+    font-family: 'Lato', sans-serif;
 }
 
 body {
     margin: 0;
+    font-size: 1rem;
 }
 
 header {
     padding: 2rem;
-    background-color: #1696ff;
+    background-color: #82C7A5;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    margin-left: 2rem;
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav a:hover {
+    color: #0145AC;
 }
 
 footer {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: #1696ff;
+    background-color: #82C7A5;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    line-height: 1.75rem;
 }
 
 .max-width {
@@ -24,48 +54,138 @@ footer {
     box-sizing: border-box;
 }
 
-.property {
+code {
     padding: 0.125rem 0.25rem;
-    font-family: serif;
-    background-color: #d4ecff;
+    font-size: 16px;
+    font-family: monospace;
+    background-color: #beeed6;
 }
 
-section {
+article {
+    margin-bottom: 5rem;
+}
+
+article > section {
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 1fr 300px;
 }
 
-section > div {
-    background-color: #f1f1f1;
+article > section + h3 {
+    margin-top: 3rem;
 }
 
-.description {
+article > section > div {
+    background-color: #eaebee;
+}
+
+.code-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
     padding: 1rem;
 }
 
-.description h3 {
+.code-container h3 {
     margin-top: 0;
+}
+
+pre {
+    margin: 0 0 0 1rem;
+    font-size: 16px;
+    line-height: 1.75rem;
 }
 
 .example {
     display: grid;
     grid-gap: 0.5rem;
     padding: 0.5rem;
-    height: 300px;
+    height: 100%;
     box-sizing: border-box;
 }
 
 .example > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    background-color: gray;
+    color: #eaebee;
+    font-size: 30px;
+    background-color: #0145AC;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.grid-column {
-    grid-template-columns: auto auto auto;
+.grid-example {
+    grid-template-columns: repeat(3, auto);
 }
 
-.grid-column div:first-of-type {
-    grid-column: 2;
-    background-color: #1696ff;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 0.5rem;
+    background-color: #eaebee;
+    padding: 0.5rem;
+}
+
+.grid-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0145AC;
+    font-size: 30px;
+    color: #eaebee;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.row-span-2 {
+    grid-row: span 2;
+}
+
+div.col-start-3 {
+    grid-column: 3;
+    background-color: #292F39;
+}
+
+div.col-start-2-end-4 {
+    grid-column: 2 / 4;
+    background-color: #292F39;
+}
+
+div.col-row-2 {
+    grid-row: 2;
+    background-color: #292F39;
+}
+
+div.col-row-1-end-3 {
+    grid-row: 1 / 3;
+    background-color: #292F39;
+}
+
+div.square-right {
+    grid-area: 2 / 2 / 4 / 4;
+    background-color: #292F39;
+}
+
+.grid-template-areas {
+    grid-template-areas: 
+        "one  two   two"
+        "one  three ."
+        ".    three ."
+        "four four  four";
+}
+
+#one {
+    grid-area: one;
+}
+#two {
+    grid-area: two;
+}
+#three {
+    grid-area: three;
+}
+#four {
+    grid-area: four;
 }
